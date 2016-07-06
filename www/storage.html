@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "Hiciste click en el boton " + localStorage.clickcount + " time(s).";
+    } else {
+        document.getElementById("result").innerHTML = "No se soporta local storage";
+    }
+}
+</script>
+</head>
+<body>
+<p><button onclick="clickCounter()" type="button">Click!</button></p>
+<div id="result"></div>
+<p>Click para incrementar.</p>
+<p>Al cerrar la aplicacion el valor debe ser el mismo.</p>
+</body>
+</html>
